@@ -6,6 +6,7 @@ services:
     environment:
       - openvidu.secret=MY_SECRET
       - openvidu.publicurl=http://192.168.1.101:4443
-      - server.ssl.enabled=false
     ports:
       - "4443:4443"
+      - "9091:9091"
+      - "8888:8888"

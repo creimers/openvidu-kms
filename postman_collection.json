@@ -1,0 +1,140 @@
+{
+	"info": {
+		"_postman_id": "38b488ac-530c-43cf-9624-a601c6bf080a",
+		"name": "sm400 openvidu",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "create session",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "MY_SECRET",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "OPENVIDUAPP",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Auth",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"customSessionId\": \"sm400\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://192.168.1.101:4443/api/sessions",
+					"protocol": "https",
+					"host": [
+						"192",
+						"168",
+						"1",
+						"101"
+					],
+					"port": "4443",
+					"path": [
+						"api",
+						"sessions"
+					]
+				},
+				"description": "create session"
+			},
+			"response": []
+		},
+		{
+			"name": "add stream to session",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "MY_SECRET",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "OPENVIDUAPP",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"type\": \"IPCAM\",\n    \"rtspUri\": \"rtsp://192.168.1.106:8554/unicast\",\n    \"adaptativeBitrate\": true,\n    \"onlyPlayWithSubscribers\": true\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://192.168.1.101:4443/api/sessions/sm400/connection",
+					"protocol": "https",
+					"host": [
+						"192",
+						"168",
+						"1",
+						"101"
+					],
+					"port": "4443",
+					"path": [
+						"api",
+						"sessions",
+						"sm400",
+						"connection"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "christoph@superservice-international.com",
+							"disabled": true
+						}
+					]
+				},
+				"description": "add stream to session"
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
